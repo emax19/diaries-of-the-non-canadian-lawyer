@@ -7,7 +7,7 @@ name: Deploy Gatsby site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: '*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -64,7 +64,7 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: gatsby
-          path_prefix: diaries-of-the-non-canadian-lawyer
+          path_prefix: ${{ github.ref == 'refs/heads/master' ? '/diaries-of-the-non-canadian-lawyer' : '/diaries-of-the-non-canadian-lawyer/stage/' + github.ref_slug }}
       - name: Restore cache
         uses: actions/cache@v3
         with:
