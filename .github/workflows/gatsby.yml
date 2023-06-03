@@ -65,7 +65,7 @@ jobs:
           #
           # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: gatsby
-          path_prefix: ${{ github.ref == 'refs/heads/master' && '/diaries-of-the-non-canadian-lawyer' || '/diaries-of-the-non-canadian-lawyer/stage/' + github.ref_slug }}
+          path_prefix: ${{ github.ref == 'refs/heads/master' && '/diaries-of-the-non-canadian-lawyer' || '/diaries-of-the-non-canadian-lawyer/stage/' }}${{ github.ref_slug }}
       - name: Restore cache
         uses: actions/cache@v3
         with:
